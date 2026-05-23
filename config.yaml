@@ -214,8 +214,6 @@ plugins:
       - exec: $forward_local
       - matches: resp_ip $geoip_cn
         exec: accept
-      - matches: "has_resp"
-        exec: accept
       - exec: ttl 600
 
   - tag: remote_seq
