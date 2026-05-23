@@ -1,3 +1,4 @@
 # oxidns-config
 oxidns配置 支持国内外分流、自动更新规则、无DNS泄露、UI可视化
-<img width="1720" height="736" alt="image" src="https://github.com/user-attachments/assets/0927439f-fa4d-4f22-a764-f9a550de60f5" />
+[OxiDNS](https://github.com/svenshi/oxidns)
+<img width="1720" height="909" alt="image" src="https://github.com/user-attachments/assets/803b5efe-5612-4e29-93b4-1e27131babc9" />
