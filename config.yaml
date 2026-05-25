@@ -115,6 +115,14 @@ plugins:
     args:
       exps:
 
+  - tag: local_ptr
+    type: domain_set
+    args:
+      exps:
+        - 168.192.in-addr.arpa.
+        - 16.172.in-addr.arpa.
+        - 10.in-addr.arpa.
+
   - tag: lazy_cache
     type: cache
     args:
@@ -164,11 +172,12 @@ plugins:
     args:
       - matches: qtype 65 255
         exec: reject 0
-      - matches:
-          - qname "$category_ads_all"
+      - matches: qname $category_ads_all
         exec: $ad_blackhole
       - matches: question $ad_rules
         exec: $ad_blackhole
+      - matches: qname $local_ptr
+        exec: reject 3
 
   - tag: ad_blackhole
     type: black_hole
