@@ -131,14 +131,6 @@ plugins:
       memory_tail: 1024
       retention_days: 3
       cleanup_interval_hours: 1
-  - tag: ecs_hk
-    type: ecs_handler
-    args:
-      forward: false
-      preset: 203.142.100.0
-      send: false
-      mask4: 24
-      mask6: 48
   - tag: block_seq
     type: sequence
     args:
@@ -192,11 +184,8 @@ plugins:
     type: sequence
     args:
       - exec: prefer_ipv4
-      - exec: $ecs_hk
       - exec: $forward_remote
-      - matches: resp_ip $gfw_ip
-        exec: reject
-      - matches: "!resp_ip $geoip_cn"
+      - matches: has_resp
         exec: accept
       - exec: ttl 300
   - tag: main_sequence
